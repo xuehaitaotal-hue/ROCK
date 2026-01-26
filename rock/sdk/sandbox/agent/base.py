@@ -27,7 +27,7 @@ class Agent(ABC):
         self.model_service: ModelService | None = None
 
     @abstractmethod
-    async def init(self):
+    async def install(self, **kwargs):
         pass
 
     @abstractmethod
@@ -64,7 +64,7 @@ class DefaultAgent(Agent):
         self.config = config
         self.agent_session = self.config.agent_session
 
-    async def init(self):
+    async def install(self):
         """Initialize the agent environment.
 
         Common flow:
